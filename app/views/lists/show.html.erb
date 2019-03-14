@@ -1,0 +1,5 @@
+<h1><%= @list.name %></h1>
+
+
+<%= link_to 'Add a Card', new_list_card_path(@list) %>
+<%= link_to 'Delete List', @list, method: :delete %>
