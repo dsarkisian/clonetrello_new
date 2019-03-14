@@ -1,14 +1,34 @@
 
-<h1><%= @board.name %></h1>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><%= @board.name %></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to 'Create a List', new_board_list_path(@board) %></li>
+        <li><%= link_to 'Edit Board', edit_board_path(@board) %></li>
+        <li><%= link_to 'Delete Board', @board, method: :delete %></li>
+        <li><%= link_to 'Home', root_path %></li>
+      </ul>
+    </div>
+  </nav>
 
-<ul>
-  <% @board.lists.each do |list| %>
-  <li>
-    <%= link_to list.name, board_list_path(@board, list) %>
-    <% end %>
-  </li>
-</ul>
+      <table class="centered">
+        <thead>
+          <tr>
+            <% @board.lists.each do |list| %>
+              <th><%= link_to list.name, board_list_path(@board, list) %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+        <% @board.lists.each do |list| %>
+          <tr>
+            <% list.cards.each do |card|%>
+            <td><%= link_to card.name %> </td>
+             <% end %>
+             <% end%>
+          </tr>
+        </tbody>
+      </table>
 
-<%= link_to 'Create a List', new_board_list_path(@board) %>
-<%= link_to 'Edit Board', edit_board_path(@board) %>
-<%= link_to 'Delete Board', @board, method: :delete %>
+
+      

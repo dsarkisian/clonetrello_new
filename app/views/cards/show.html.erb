@@ -1,8 +1,11 @@
 <h1><%= @card.name %></h1>
+<hr>
 
 <p><%= @card.description %> </p>
 
 
 <%= link_to 'Edit Card', edit_list_card_path(@list) %>
+<%= link_to 'Delete Card', [@list, @card], method: :delete %>
+<%= link_to 'Back', list_path(@list) %>
 
 

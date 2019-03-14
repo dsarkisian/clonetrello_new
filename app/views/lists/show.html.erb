@@ -1,5 +1,11 @@
 <h1><%= @list.name %></h1>
-
+<ul>
+  <% @list.cards.each do |card| %>
+  <li>
+    <%= link_to card.name, list_card_path(@list, card) %>
+    <% end %>
+  </li>
+</ul>
 
 <%= link_to 'Add a Card', new_list_card_path(@list) %>
 <%= link_to 'Delete List', @list, method: :delete %>

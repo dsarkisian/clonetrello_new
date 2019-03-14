@@ -3,4 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-@import 'materialize-sass';
+
+#list-item {
+  display:inline;
+  margin-left: 40px;
+  margin-right: 40px;
+}
